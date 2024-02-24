@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon",
-    "test": "vitest user.e2e.spec.ts",
+    "e2e": "vitest run ./src/test/user.e2e.spec.ts",
+    "test-login": "vitest run ./src/test/user.login.spec.ts",
+    "test-register": "vitest run ./src/test/user.register.spec.ts",
     "coverage": "vitest --coverage"
   },
   "keywords": [],
