@@ -1,13 +1,24 @@
-import { test, describe } from 'vitest'
+import { test, expect, describe, beforeAll } from 'vitest'
 import request from 'supertest'
 import { app } from '../index'
+
+// Create testuser from the database before running the spec if it does not exist
+const username = 'testuser'
+beforeAll(async () => {
+    await request(app)
+            .post('/auth/register')
+            .send({
+                username: username,
+                password: 'testpassword'
+            })
+});
 
 describe('User Login', () => {
     test('POST /auth/login - should login a user and return 200 status', async ({ expect }) => {
         const res = await request(app)
             .post('/auth/login')
             .send({
-                username: 'testuser',
+                username: username,
                 password: 'testpassword'
             })
         expect(res.statusCode).toBe(200)
