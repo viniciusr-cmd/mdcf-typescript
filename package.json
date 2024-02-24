@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon",
-    "test": "vitest",
+    "test": "vitest user.e2e.spec.ts",
     "coverage": "vitest --coverage"
   },
   "keywords": [],
