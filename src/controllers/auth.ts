@@ -10,8 +10,8 @@ export const login = async (req: express.Request, res: express.Response) => {
             return res.status(401).send('Invalid username or password');
         }
 
-        // If token is invalid, return 401
-        if (req.cookies.sessionToken) {
+        // If token is invalid, return 403
+        if (!req.cookies.sessionToken) {
             return res.status(403).send('Invalid session token');
         }
 
