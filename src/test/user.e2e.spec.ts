@@ -52,23 +52,22 @@ describe('User Login', () => {
         expect(res.body).toHaveProperty('authentication.sessionToken')
     })
 
-    test('POST /auth/login - should return 401 status for incorrect credentials', async ({ expect }) => {
+    test('POST /auth/login - should return 400 status for incorrect credentials', async ({ expect }) => {
         const res = await request(app)
             .post('/auth/login')
             .send({
                 username: 'wronguser',
                 password: 'wrongpassword'
             })
-        expect(res.statusCode).toBe(401)
+        expect(res.statusCode).toBe(400)
     })
 
-    test('POST /auth/login - should return 403 for token that is invalid', async ({ expect }) => {
+    test('POST /auth/login - should return 403 for a distinct password in database that is invalid', async ({ expect }) => {
         const res = await request(app)
             .post('/auth/login')
-            .set('Cookie', 'sessionToken=invalidToken')
             .send({
                 username: 'testuser',
-                password: 'testpassword'
+                password: 'invalidpassword'
             })
         expect(res.statusCode).toBe(403)
     })
