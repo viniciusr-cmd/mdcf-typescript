@@ -211,7 +211,21 @@ curl --request DELETE \
 204 No Content
 ```
 
+<h3 id="getall-detail">GET /users</h3>
 
+**RESPONSE**
+```json
+{
+	"authentication": {
+		"password": "f3a8f30ee08e90b348a4a7b9a81008ab363176f8dab32b7c3bbc74c6f4f1acf7",
+		"salt": "1prFs01jEV5TGz5z8DneFJRiAzYg/AbE+jG92W/NZjrXYBXA2cn8saOtWcFUePbVYJhSzG7fx7tBrS2xouayp4R+KRdpPoif+T2uRgrcNTdvVcq+KXxyyt1G+rpkDZWmZwWLdC3hB8xvwTTYYAonM15rSJszQM7/q3a3bXDX03U=",
+		"sessionToken": "7dd4efbff4ca66e4fa380294a66787a6ef6fac79b08f9745069f37e00ad1a947"
+	},
+	"_id": "65da2a0e3aa903838235d7e4",
+	"username": "TESTUSERUPDATED",
+	"__v": 0
+}
+```
 
 <h3>Documentations that might help</h3>
 
