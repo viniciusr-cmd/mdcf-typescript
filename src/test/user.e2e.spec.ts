@@ -84,7 +84,6 @@ describe('User Update', () => {
                 username: 'TESTUSERUPDATED'
             })
 
-        console.log('res.body', cookies)
         expect(res.statusCode).toBe(200)
         expect(res.body).toHaveProperty('username')
     })
