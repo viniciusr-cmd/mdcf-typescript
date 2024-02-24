@@ -76,7 +76,7 @@ yarn run
 
 <h2 id="tests"> 📝 Running Unit Tests</h3>
 
-This project uses [Vitest](https://vitest.dev/) for unit testing. Follow these steps to run the tests:
+This project uses [Vitest](https://vitest.dev/) for unit testing. **You also don't need to run the server, vitest can access the express app.** Follow these steps to run the tests:
 
 1. **Navigate to the project directory**: If you're not already there, change your current directory to the project directory:
 ```bash
@@ -95,23 +95,91 @@ npm install
 yarn install
 ```
 
-3. **Run the tests**: Use the following command to run the unit tests:
+<h4> 3. 🧪 Run the tests: Use the following commands to run the unit tests: </h4>
+
+3.1 **Run E2E tests**: Use the following command to run the E2E tests:
 
 **NPM**
 ```bash
-npm test
+npm run e2e
 ```
 
 **YARN**
 ```bash
-yarn test
+yarn run e2e
 ```
 
-**NPX**
+3.2 **Run User Register Tests**: Use the following command to run the User Register tests:
+
+**NPM**
 ```bash
-npx vitest
+npm run test-register  
 ```
 
+**YARN**
+```bash
+yarn run test-register
+```
+
+3.3 **Run User Login Tests**: Use the following command to run the User Login tests:
+
+**NPM**
+```bash
+npm run test-login  
+```
+
+**YARN**
+```bash
+yarn run test-login
+```
+
+<h4> 4. ✅ Results</h4>
+
+***E2E***
+
+```
+✓ src/test/user.e2e.spec.ts (8) 584ms
+   ✅  User Registration (2)
+     ✓ POST /auth/register - should create a new user and return 201 status
+     ✓ POST /auth/register - should return 400 status for missing parameters
+   ✅  User Login (3)
+     ✓ POST /auth/login - should login a user and return 200 status
+     ✓ POST /auth/login - should return 400 status for incorrect credentials
+     ✓ POST /auth/login - should return 403 for a distinct password in database that is invalid
+   ✅  User Update (2)
+     ✓ PATCH /users/:id - should update a user and return 200 status
+     ✓ PATCH /users/:id - should return 403 status for forbidden update
+   ✅  User Deletion (1)
+     ✓ DELETE /users/:id - should delete a user and return 204 status
+     
+     Test Files  1 passed (1)
+        Tests  8 passed (8)
+```
+
+***TEST-REGISTER***
+
+```
+✓ src/test/user.register.spec.ts (2) 481ms
+   ✅  User Registration (2)
+     ✓ POST /auth/register - should create a new user and return 201 status
+     ✓ POST /auth/register - should return 400 status for missing parameters
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+```
+
+***TEST-LOGIN***
+
+```
+✓ src/test/user.login.spec.ts (3) 543ms
+   ✅  User Login (3)
+     ✓ POST /auth/login - should login a user and return 200 status
+     ✓ POST /auth/login - should return 400 status for incorrect credentials
+     ✓ POST /auth/login - should return 403 for a distinct password in database that is invalid
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+```
 
 <h2 id="routes">📍 API Endpoints</h2>
 
