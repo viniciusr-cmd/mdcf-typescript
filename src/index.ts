@@ -25,8 +25,12 @@ server.listen(8080, () => {
 
 // Connect to MongoDB
 
+// Get ENVS
+const MONGO_USER = process.env.MONGO_USER;
+const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
+
 // Replace with your MongoDB URI
-const MONGO_URI = 'mongodb+srv://admin:iBGvK7dlizctBFrO@cluster0.wkoqtx8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const MONGO_URI = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@cluster0.wkoqtx8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URI);
